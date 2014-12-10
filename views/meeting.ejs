@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>set meetings</title>
+  <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+
+<script src="call.js"></script>
+<script src="jquery-ui.multidatespicker.js"></script>
+  <script src="click.js"></script>
+
+  <style>
+	table{
+		border-collapse: collapse;
+		margin-left: 60px;
+		margin-bottom: 30px;
+	}
+
+	td {
+	    border: 1px solid black;
+	    width: 100px;
+	    height: 50px;
+	    border-collapse: collapse;
+	}
+
+	#welcome{
+		padding-bottom: 40px;
+	}
+
+	table td.highlighted {
+	  background-color:#999;
+	}
+
+  </style>
+</head>
+<body>
+	<div id='welcome'>
+		<h1>Meeting Form:<h2 id="id"><%=obj.id%></h2> </h1>
+		<h2>Title<input type="text" id="title"></h2>
+
+		Choose dates: <div id="calendar"></div>
+		Earliest: <input type="text" id="timeFirst">
+		Latest: <input type="text" id="timeLast">
+
+		<input type="submit" value="show table" id="showtable">
+	</div>
+
+	<div id="timetable">
+	</div>
+
+	<input type="button" value="Save Meeting" id="savetable">
+
+
+</body>
+</html>

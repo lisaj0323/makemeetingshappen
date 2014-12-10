@@ -2,11 +2,7 @@
   "name": "M2C-SimpleStaticServer",
   "version": "1.0.0",
   "description": "M2C Simple Static Server",
-  "author": {
-    "name": "Joe mertz",
-    "email": "JoeMertz@cmu.edu",
-    "url": "http://www.andrew.cmu.edu/course/67-328"
-  },
+  "author": "Joe mertz <JoeMertz@cmu.edu> (http://www.andrew.cmu.edu/course/67-328)",
   "repository": {
     "type": "git",
     "url": "https://github.com/openshift/origin-server"
@@ -16,11 +12,19 @@
     "npm": ">= 1.0.0"
   },
   "dependencies": {
-    "express": "4.8",
-    "morgan": "1.2"
+    "express": "^4.8.8",
+    "morgan": "^1.2.3"
   },
   "devDependencies": {},
   "bundleDependencies": [],
   "private": true,
-  "main": "server.js"
+  "main": "app.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "bugs": {
+    "url": "https://github.com/openshift/origin-server/issues"
+  },
+  "homepage": "https://github.com/openshift/origin-server",
+  "license": "ISC"
 }
