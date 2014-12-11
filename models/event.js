@@ -70,7 +70,7 @@ exports.find = function(collection, query, callback) {
 
 
 
-exports.update = function(collection, query, callback) {
+exports.update = function(collection, query, user, callback) {
 	console.log("inside update function and query.find is " + JSON.stringify(query.find) + " and query.update is " + JSON.stringify(query.update));
           mongoDB.collection(collection).findAndModify(
           	JSON.parse(query.find),[],
@@ -78,12 +78,21 @@ exports.update = function(collection, query, callback) {
           	upsert:true,
           	new:true
           }, function(err, crsr) {
-
-            	console.log("crsr in event update is " + JSON.stringify(crsr));
+    //       		console.log("user " + JSON.stringify(user));
+    //       		mongoDB.collection('user').findAndModify(
+				//     {id:user.id}, [],
+				//     {$push:{events:{event_id: crsr.id, event_name: crsr.name}}},{
+				//       upsert:true,
+				//       new:true
+				//     }
+				// )
+	           	console.log("crsr in event update is " + JSON.stringify(crsr));
             	//memberUpdate(crsr);
               if (err) doError(err);
-              callback(crsr);
+              console.log("CALLING THE CALLBACK");
+              return callback(crsr);
         });
+
 }
 
 //db.people.update(

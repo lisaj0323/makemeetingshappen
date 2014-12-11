@@ -45,17 +45,21 @@
   </style>
 </head>
 <body>
-	<div id='welcome'>
-		<h1>event title:<%=obj.name%> </h1>
-		<h2 id="colNames"><%=obj.dateTime%></h2>
-<h2 id='timeFirstt'><%=obj.earliest%></h2><h2 id='timeLastt'> <%=obj.latest%></h2>
-<h2 id='colNum'><%=obj.dates%></h2>
+
+<div class="container">
+	<div id='welcome' class="container">
+		<h1 id="eventN"><%=obj.name%></h1> <h3 id="eId"><%=obj.id%></h3>
+		Dates Available:<p id='colNum'><%=obj.dates%></p>
+		Earliest:<p id='timeFirstt'><%=obj.earliest%></p>
+		Latest:<p id='timeLastt'> <%=obj.latest%></p>
+		Dates Available:<p id='colNum'><%=obj.dates%></p>
+		Free Times:<p id="colNames"><%=obj.dateTime%></p>
 		</div>
 
 	<div id="timetable2">
 	</div>
 
-	<input type='button' value="update meeting" id="savetable">
-
+	<input type='button' value="update meeting" id="savetable2">
+</div>
 </body>
 </html>

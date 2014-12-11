@@ -9,7 +9,7 @@ $(document).ready(function(){
 	var colNames=[];
 	var rowNames=[];
 	var parts;
-	var eventNames;
+	var colored;
 
 		firstTimes = $('#timeFirstt').text();
 		lastTimes = $('#timeLastt').text();
@@ -118,13 +118,12 @@ $(document).ready(function(){
 			for (var i = 0; i < row; i++) {
 			    // creates a table row
 				var roww = document.createElement("tr");
-				console.log("i " + i);
 			 
 			    for (var j = 0; j < cols; j++) {
 			      // Create a <td> element and a text node, make the text
 			      // node the contents of the <td>, and put the <td> at
 			      // the end of the table row
-			      console.log("j" + j);
+			      
 			      if(j==0){
 			      	var textNode;
 			      	if(i%2==0){
@@ -171,13 +170,87 @@ $(document).ready(function(){
 			  // appends <table> into <body>
 			    body.appendChild(tbl);
 
-		// $.getJSON("test.json", function(res){
+			    colored = $('#colNames').text().split(',');
+			    console.log("colored " + colored)
 
-		// })
-	//})
+			for(var q=0;q<colored.length; q++){
+				console.log("colNames[q] is " + colored[q]);
+				$('#our_table td').each(function(){
+					if(colored[q]==$(this).attr('datetime')){
+						$(this).css("border-color","rgb(178,229,229)");
+					}
+				})
+			}
+				
 }
+
 
 drawtable();
 
+
+	var isMouseDowns = false,
+	    	isHighlightedd;
+	var currentCols;
+	var startEnds = [];
+
+			$("#timetable2").on('mousedown', '#our_table td', function(){
+	    	//console.log("mouse down : " + $(this).attr("dateTime"));
+		      isMouseDowns = true;
+		      currentCols = this.getAttribute("data-col");
+		      $(this).toggleClass("highlighted");
+		      isHighlightedd = $(this).hasClass("highlighted");
+		  //     if(isHighlighted){
+		  //     	slot.start = $(this).attr('dateTime');
+		  //     }else{
+		  //     	for (var i = 0; i < startEnd.length; i++){
+				//   // look for the entry with a matching `code` value
+				//   if (startEnd[i].start == $(this).attr('dateTime')){
+				//      startEnd.splice(i, 1);// we found it
+				//     // obj[i].name is the matched result
+				//   }
+				// }
+		  //     }
+		      return false; // prevent text selection
+	    });
+
+	 	$("#timetable2").on('mouseover', '#our_table td', function(){
+	      if (isMouseDowns) {
+	          if(currentCols === this.getAttribute("data-col")){
+	              $(this).toggleClass("highlighted", isHighlightedd);
+	          }
+	      }
+	    });
+
+	    $('#savetable2').on('click', function(e){
+
+
+		console.log("savemeeting clicked");
+		var id=$("#eId").text();
+		var eventN=$('#eventN').text();
+		e.preventDefault();
+
+		$('.highlighted').each(function(){
+			startEnds.push($( this ).attr("datetime"));
+			for(var y=0;y<colored.length;y++){
+				startEnds.push(colored[y]);
+			}
+		})
+
+		//fruit/update?find={"name":"pear"}&update={"$set":{"leaves":"green"}}
+		var urlOne = '/event/update?find={"id":' + '"'+id+'"' + '}&update={"$set":{"name":'+ '"'+ eventN+'","dateTime":'+JSON.stringify(startEnds)+
+		',"earliest":"'+firstTimes+'","latest":"'+lastTimes+'","dates":'+ JSON.stringify(colNames)+'}}';
+
+		console.log("upadate url : " + urlOne);
+
+		$.ajax({
+			url: urlOne,
+			type: 'POST',
+			success: function(result) {
+				console.log("result after ajax: " + result)
+				$('body').html(result);
+				
+			}
+		});
+	})
 
 })

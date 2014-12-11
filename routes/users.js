@@ -21,7 +21,7 @@ exports.addEvents = function(req, res){
 		console.log("//////last model to ejs is " + JSON.stringify(model) + " and model.events is " + JSON.stringify(model.events));
 		res.render('layout', {user:model});
 	});
-	//res.redirect('/');
+	//res.redirect('/'); 
 }
 
 

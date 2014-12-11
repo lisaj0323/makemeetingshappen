@@ -72,7 +72,7 @@ passport.deserializeUser(function(obj, done) { //obj= user.id
 passport.use(new GoogleStrategy({
     clientID: '351029077337-lj4ufniaiasdp9gqs36iev730vsuhmsa.apps.googleusercontent.com',
     clientSecret: 'yS45OxLxWD7FcQWMNyM7n1a7',
-    callbackURL: "http://setmeetings-lisajung.rhcloud.com/auth/google/return"
+    callbackURL: 'http://localhost:50000/auth/google/return' ///"http://setmeetings-lisajung.rhcloud.com/auth/google/return"
   },
   function(token, tokenSecret, profile, done) {
     // asynchronous verification, for effect...
@@ -125,13 +125,14 @@ app.set('view engine', 'ejs');
   // Set the views directory
   
 
-app.get('/', ensureAuthenticated, userRoutes.getUser);
+app.get('/', ensureAuthenticated,userRoutes.getUser);
 app.get('/:event_id/:event_name/12345/6789', userRoutes.addEvents);
 
 //app.get('/', )
 
 app.get('/event/:operation', eventRoutes.mongo);
-app.post('/event/:operation', eventRoutes.mongo);
+app.post('/event/:operation', ensureAuthenticated, eventRoutes.mongo);
+//app.post('/event/:operat')
 
 //app.get('/event/:operation/:gcal', eventRoutes.importGcal);
 
@@ -184,7 +185,7 @@ app.get('/logout', function(req, res){
 //   login page.
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
-  res.redirect('/login')
+  res.redirect('/index.html')
 }
 
 

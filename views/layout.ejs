@@ -14,8 +14,8 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-<script src="jquery-ui.multidatespicker.js"></script>
-  <script src="call.js"></script>
+<script src="/jquery-ui.multidatespicker.js"></script>
+  <script src="/call.js"></script>
   <link rel="stylesheet" href="/css/style.css">
 
 
@@ -33,12 +33,11 @@
 			<% if (user.events.length) { %>
 			</br>
 				<% user.events.forEach(function(next) { %>
-				<a href="event/find?id=<%= next.event_id %>" ><%=next.event_name%></a> </br>
+				<a href="/event/find?id=<%= next.event_id %>" ><%=next.event_name%></a> </br>
 			<% }); %>
 			
 			<% } %>
-			 
-			</br>
+
 			</br>
 			<input type="button" id="makeEvent" value="New Meeting">
 </div>

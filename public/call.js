@@ -293,12 +293,10 @@ $(document).ready(function(){
 		})
 
 		//fruit/update?find={"name":"pear"}&update={"$set":{"leaves":"green"}}
-		var urlOne = 'event/update?find={"id":' + '"'+id+'"' + '}&update={"$set":{"name":'+ '"'+ eventName+'","dateTime":'+JSON.stringify(startEnd)+
+		var urlOne = '/event/update?find={"id":' + '"'+id+'"' + '}&update={"$set":{"name":'+ '"'+ eventName+'","dateTime":'+JSON.stringify(startEnd)+
 		',"earliest":"'+firstTime+'","latest":"'+lastTime+'","dates":'+ JSON.stringify(colName)+'}}';
 
 		console.log("urlOne : " + urlOne);
-
-		var urlTwo = "event/update?id="+id+"&";
 
 		$.ajax({
 			url: urlOne,
