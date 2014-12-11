@@ -96,7 +96,7 @@ passport.use(new GoogleStrategy({
           
           User.insert('user', newUser, function(err, user){
            console.log("user insert callback" + JSON.stringify(user));
-            return done(null, user);
+            return done(null, user[0]);
           })
           //return done(err, newUser);
         }

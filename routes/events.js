@@ -1,10 +1,6 @@
 var mongo = require('../models/event.js');
 var gcal = require('google-calendar');
 
-// exports.importgCal = function(req, res){
-// 	res.render('meeting', {meeting:res.user});
-// }
-
 exports.mongo = function(req, res){
  	//console.log("req in user.js : " + JSON.stringify(req));
   /*
@@ -46,12 +42,6 @@ exports.mongo = function(req, res){
 		                              );
 									 	break;
 
-		// case 'delete': mongo.delete(req.params.collection, 
-		// 							req.query, 
-		// 							function(model){
-		// 								res.render('success', {'title': 'Delete', obj: model});
-		// 								});
-		// 								break;
 	}
 }
 

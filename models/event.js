@@ -95,15 +95,6 @@ exports.update = function(collection, query, user, callback) {
 
 }
 
-//db.people.update(
-//    { name: "Andy" },
-//    {
-//       name: "Andy",
-//       rating: 1,
-//       score: 1
-//    },
-//    { upsert: true }
-// )
 function memberUpdate(query){
 	console.log("current user.id is " + user.id + " and event id is " + query.id);
 	//mongoDB.collection('event').update(query, {$set:{member:[user.id]}});
