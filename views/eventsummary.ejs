@@ -6,12 +6,21 @@
   <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 
-<script src="call.js"></script>
-<script src="jquery-ui.multidatespicker.js"></script>
-  <script src="click.js"></script>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 
-  <style>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="/call.js"></script>
+<script src="/jquery-ui.multidatespicker.js"></script>
+  <script src="/click.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
+
+
+<style>
 	table{
 		border-collapse: collapse;
 		margin-left: 60px;
@@ -38,16 +47,15 @@
 <body>
 	<div id='welcome'>
 		<h1>event title:<%=obj.name%> </h1>
-		<h2><%=obj.dateTime%></h2>
-	<h2><%=obj.earliest%>, <%=obj.latest%></h2>
-	<h2><%=obj.dates%></h2>
-	</div>
+		<h2 id="colNames"><%=obj.dateTime%></h2>
+<h2 id='timeFirstt'><%=obj.earliest%></h2><h2 id='timeLastt'> <%=obj.latest%></h2>
+<h2 id='colNum'><%=obj.dates%></h2>
+		</div>
 
 	<div id="timetable2">
 	</div>
 
-	<input type="button" value="Save Meeting" id="savetable">
-
+	<input type='button' value="update meeting" id="savetable">
 
 </body>
 </html>

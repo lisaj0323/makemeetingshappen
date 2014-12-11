@@ -131,7 +131,7 @@ app.get('/:event_id/:event_name/12345/6789', userRoutes.addEvents);
 //app.get('/', )
 
 app.get('/event/:operation', eventRoutes.mongo);
-app.post('/event/:operation', ensureAuthenticated, eventRoutes.mongo);
+app.post('/event/:operation', eventRoutes.mongo);
 
 //app.get('/event/:operation/:gcal', eventRoutes.importGcal);
 

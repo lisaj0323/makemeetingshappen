@@ -7,7 +7,7 @@ var mongoDB; // The connected database
 // Use connect method to connect to the Server
 
 
-var connection_string = '127.0.0.1:27017/328final';
+var connection_string = 'mongodb://127.0.0.1:27017/328final';
 // if OPENSHIFT env variables are present, use the available connection info:
 if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD){
   connection_string = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +

@@ -13,6 +13,7 @@ exports.mongo = function(req, res){
    */
    console.log("inside mongo route fn");
    console.log("req.params.operation is " + JSON.stringify(req.params.operation));
+   console.log("req.params is " + JSON.stringify(req.params));
 	switch (req.params.operation) {
 		case 'insert':	mongo.insert( 'event', 
 		                              req.query,
@@ -26,7 +27,8 @@ exports.mongo = function(req, res){
 		case 'find':	mongo.find('event', 
 									req.query, 
 									function(model){
-										res.render('eventsummary', {obj:model[0]});
+
+										return res.render('eventsummary', {obj:model[0]});
 									}
 								);
 					 	break;
