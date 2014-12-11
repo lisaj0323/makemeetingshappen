@@ -72,7 +72,7 @@ passport.deserializeUser(function(obj, done) { //obj= user.id
 passport.use(new GoogleStrategy({
     clientID: '351029077337-lj4ufniaiasdp9gqs36iev730vsuhmsa.apps.googleusercontent.com',
     clientSecret: 'yS45OxLxWD7FcQWMNyM7n1a7',
-    callbackURL: 'http://localhost:50000/auth/google/return' ///"http://setmeetings-lisajung.rhcloud.com/auth/google/return"
+    callbackURL: "http://setmeetings-lisajung.rhcloud.com/auth/google/return"
   },
   function(token, tokenSecret, profile, done) {
     // asynchronous verification, for effect...
